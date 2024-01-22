@@ -15,7 +15,21 @@ button.addEventListener('click', function(){
     .then(response => response.json())
     .then(
         displayData)
-    .catch(err => alert('Wrong City name')); 
+    .catch(err => alert('Wrong City name'));
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=O6oX0tGwcVPJCTtm74JCODQDPaxwupACXkee54sg`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Ошибка HTTP: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log("Дата:", data.date);
+    console.log("Заголовок:", data.title);
+    console.log("Изображение URL:", data.url);
+    console.log("Описание:", data.explanation);
+  })
+  .catch(error => console.error("Ошибка при получении данных:", error));
 })
 
 let lon, lat;
@@ -63,3 +77,4 @@ function mapUpdate(lon, lat) {
       title: 'my mark'
     });
 }
+
