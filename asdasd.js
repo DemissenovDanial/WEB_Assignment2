@@ -6,6 +6,9 @@ let desc = document.querySelector('.desc');
 let feels_like = document.querySelector('.feels_like');
 let humidity = document.querySelector('.humidity');
 let pressure = document.querySelector('.pressure');
+let wind = document.querySelector('.wind');
+let cod = document.querySelector('.cod');
+let coord = document.querySelector('.coord');
 
 button.addEventListener('click', function(){
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputvalue.value}&units=metric&appid=108dd9a67c96f23039937fe6f3c91963`)
@@ -22,6 +25,9 @@ const displayData=(weather)=>{
     feels_like.innerText=`${"feels_like: " + weather.main.feels_like}°C`
     humidity.innerText=`${"humidity: " +weather.main.humidity}`
     pressure.innerText=`${"pressure: " + weather.main.pressure}`
+    wind.innerText=`${"wind: " + weather.wind.speed + "m/s"}`
+    cod.innerText=`${"cod: " + weather.cod}`
+    coord.innerText=`${"lon: " + weather.coord.lon + " lat: " + weather.coord.lat}`
 }
 
 function mapinit() {
