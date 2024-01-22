@@ -16,10 +16,13 @@ button.addEventListener('click', function(){
     .then(
         displayData)
     .catch(err => alert('Wrong City name')); 
-
 })
 
+let lon, lat;
+
 const displayData=(weather)=>{
+    lon = weather.coord.lon;
+    lat = weather.coord.lat;
     temp.innerText=`${"temp: " + weather.main.temp}°C`
     desc.innerText=`${"description: " + weather.weather[0].main}`
     feels_like.innerText=`${"feels_like: " + weather.main.feels_like}°C`
@@ -28,6 +31,7 @@ const displayData=(weather)=>{
     wind.innerText=`${"wind: " + weather.wind.speed + "m/s"}`
     cod.innerText=`${"cod: " + weather.cod}`
     coord.innerText=`${"lon: " + weather.coord.lon + " lat: " + weather.coord.lat}`
+    mapUpdate(lon, lat);
 }
 
 function mapinit() {
@@ -44,4 +48,18 @@ function mapinit() {
       title: 'my mark'
     });
   }
+
+function mapUpdate(lon, lat) {
+    var coord = { lat: lat, lng: lon };
   
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12, 
+      center: coord 
+    });
+  
+    var mark = new google.maps.Marker({
+      position: coord,
+      map: map,
+      title: 'my mark'
+    });
+}
