@@ -34,5 +34,5 @@ The page will display weather information, an APOD image, and top news headlines
 *NASA APOD API,*
 *News API*
 
-## Student: Demissenov Danial
-## Group: SE-2206
+#### Student: Demissenov Danial
+#### Group: SE-2206
