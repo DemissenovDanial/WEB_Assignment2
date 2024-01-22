@@ -2,6 +2,7 @@
 This project is a web application that provides weather information for a specified location, along with data from NASA's Astronomy Picture of the Day (APOD) API and top headlines from the News API. The weather data is displayed on the page, and additional information such as APOD image, date, and news headlines are also presented.
 
 ##Files:
+
 **1. asdasd.js**
 This JavaScript file handles the logic for fetching and displaying weather, NASA APOD, and news data. It utilizes the OpenWeatherMap API, NASA APOD API, and News API to gather information. The main features include:
 
